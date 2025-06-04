@@ -1,0 +1,119 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #e0f2f7; /* Um azul clarinho, cor de água */
+    color: #333;
+    text-align: center;
+}
+
+header {
+    background-color: #81d4fa; /* Um azul mais forte */
+    padding: 20px 0;
+    color: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 1.1em;
+}
+
+.ciclo-container {
+    display: flex; /* Para organizar as etapas lado a lado */
+    flex-wrap: wrap; /* Para que as etapas quebrem a linha em telas pequenas */
+    justify-content: center; /* Centraliza as etapas */
+    gap: 30px; /* Espaço entre as etapas */
+    padding: 40px 20px;
+}
+
+.etapa {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 20px;
+    width: 250px; /* Largura de cada cartão de etapa */
+    transition: transform 0.3s ease-in-out; /* Animação suave ao passar o mouse */
+    position: relative; /* Necessário para posicionar a caixa de info */
+    overflow: hidden; /* Garante que a info escondida não seja vista */
+}
+
+.etapa:hover {
+    transform: translateY(-10px); /* Levanta o cartão ao passar o mouse */
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.etapa img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    display: block; /* Remove espaço extra abaixo da imagem */
+    margin-left: auto; /* Centraliza a imagem */
+    margin-right: auto; /* Centraliza a imagem */
+}
+
+.etapa h2 {
+    color: #0288d1; /* Azul da água */
+    font-size: 1.4em;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.etapa .info {
+    position: absolute;
+    bottom: 0; /* Começa na parte de baixo do cartão */
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 150, 136, 0.9); /* Verde-água com transparência */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    box-sizing: border-box; /* Inclui padding na largura/altura */
+    transform: translateY(100%); /* Esconde o texto para baixo */
+    transition: transform 0.4s ease-out; /* Animação de subida */
+    text-align: center;
+    font-size: 1.05em;
+    border-radius: 10px;
+}
+
+.etapa:hover .info {
+    transform: translateY(0); /* Mostra o texto ao passar o mouse */
+}
+
+footer {
+    background-color: #81d4fa;
+    padding: 20px 0;
+    color: white;
+    margin-top: 40px;
+}
+
+.botao-quiz {
+    display: inline-block;
+    background-color: #4CAF50; /* Verde vibrante */
+    color: white;
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-decoration: none; /* Remove sublinhado do link */
+    font-size: 1.2em;
+    margin-top: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.botao-quiz:hover {
+    background-color: #45a049; /* Verde mais escuro no hover */
+}
+
+/* Responsividade básica */
+@media (max-width: 768px) {
+    .etapa {
+        width: 80%; /* Ocupa mais espaço em telas menores */
+    }
+}
