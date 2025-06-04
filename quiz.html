@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz do Ciclo da Água</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Estilos específicos para o quiz podem vir aqui ou no style.css */
+        .quiz-container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            padding: 30px;
+            margin: 50px auto;
+            max-width: 600px;
+            text-align: left;
+        }
+
+        .pergunta {
+            margin-bottom: 25px;
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #0288d1;
+        }
+
+        .opcoes label {
+            display: block;
+            background-color: #f0f0f0;
+            padding: 12px 15px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-size: 1.1em;
+        }
+
+        .opcoes label:hover {
+            background-color: #e0e0e0;
+        }
+
+        .opcoes input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .btn-check-quiz {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: #28a745; /* Verde para checar */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.3em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 30px;
+        }
+
+        .btn-check-quiz:hover {
+            background-color: #218838;
+        }
+
+        .resultado {
+            margin-top: 30px;
+            padding: 15px;
+            border-radius: 5px;
+            font-size: 1.4em;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .resultado.correto {
+            background-color: #d4edda; /* Verde claro */
+            color: #155724; /* Verde escuro */
+            border: 1px solid #c3e6cb;
+        }
+
+        .resultado.incorreto {
+            background-color: #f8d7da; /* Vermelho claro */
+            color: #721c24; /* Vermelho escuro */
+            border: 1px solid #f5c6cb;
+        }
+
+        /* Esconder o feedback por padrão. Será revelado com JavaScript. */
+        .feedback {
+            display: none; 
+            font-size: 0.9em;
+            margin-top: 5px;
+            padding: 5px 10px;
+            border-radius: 3px;
+        }
+        .feedback.show {
+            display: block;
+        }
+        .feedback.correto {
+            color: #28a745; /* Verde para feedback correto */
+        }
+        .feedback.incorreto {
+            color: #dc3545; /* Vermelho para feedback incorreto */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>❓ Quiz do Ciclo da Água ❓</h1>
+        <p>Vamos ver o quanto você aprendeu!</p>
+    </header>
+
+    <div class="quiz-container">
+        <form id="quizForm">
+            <div class="pergunta-bloco">
+                <p class="pergunta">1. O que acontece com a água quando o Sol a aquece?</p>
+                <div class="opcoes">
+                    <label>
+                        <input type="radio" name="q1" value="a"> Ela congela.
+                    </label>
+                    <label>
+                        <input type="radio" name="q1" value="b"> Ela vira vapor e sobe.
+                    </label>
+                    <label>
+                        <input type="radio" name="q1" value="c"> Ela desaparece.
+                    </label>
+                </div>
+                <div class="feedback" id="feedback-q1"></div>
+            </div>
+
+            <div class="pergunta-bloco">
+                <p class="pergunta">2. O que são as nuvens?</p>
+                <div class="opcoes">
+                    <label>
+                        <input type="radio" name="q2" value="a"> Bolinhas de algodão.
+                    </label>
+                    <label>
+                        <input type="radio" name="q2" value="b"> Vapor d'água congelado.
+                    </label>
+                    <label>
+                        <input type="radio" name="q2" value="c"> Pequenas gotinhas de água ou cristais de gelo no ar.
+                    </label>
+                </div>
+                <div class="feedback" id="feedback-q2"></div>
+            </div>
+
+            <div class="pergunta-bloco">
+                <p class="pergunta">3. Quando a água cai do céu, chamamos de...</p>
+                <div class="opcoes">
+                    <label>
+                        <input type="radio" name="q3" value="a"> Nuvens.
+                    </label>
+                    <label>
+                        <input type="radio" name="q3" value="b"> Precipitação.
+                    </label>
+                    <label>
+                        <input type="radio" name="q3" value="c"> Evaporação.
+                    </label>
+                </div>
+                <div class="feedback" id="feedback-q3"></div>
+            </div>
+
+            <button type="button" class="btn-check-quiz" onclick="checkAnswers()">Ver Resultado</button>
+        </form>
+
+        <div class="resultado" id="resultadoFinal"></div>
+    </div>
+
+    <footer>
+        <p><a href="index.html" class="botao-quiz">Voltar para o Ciclo da Água</a></p>
+    </footer>
+
+    <script>
+        function checkAnswers() {
+            const correctAnswers = {
+                q1: 'b',
+                q2: 'c',
+                q3: 'b'
+            };
+            let score = 0;
+            const totalQuestions = Object.keys(correctAnswers).length;
+            const form = document.getElementById('quizForm');
+            const resultadoFinal = document.getElementById('resultadoFinal');
+
+            // Reset feedbacks
+            document.querySelectorAll('.feedback').forEach(el => {
+                el.classList.remove('show', 'correto', 'incorreto');
+                el.textContent = '';
+            });
+
+            for (const questionId in correctAnswers) {
+                const selectedOption = form.elements[questionId].value;
+                const feedbackDiv = document.getElementById(`feedback-${questionId}`);
+                
+                if (selectedOption === correctAnswers[questionId]) {
+                    score++;
+                    feedbackDiv.textContent = 'Correto! ✔️';
+                    feedbackDiv.classList.add('show', 'correto');
+                } else {
+                    feedbackDiv.textContent = `Incorreto. A resposta certa era: ${correctAnswers[questionId].toUpperCase()}. ❌`;
+                    feedbackDiv.classList.add('show', 'incorreto');
+                }
+            }
+
+            resultadoFinal.textContent = `Você acertou ${score} de ${totalQuestions} perguntas!`;
+            if (score === totalQuestions) {
+                resultadoFinal.classList.remove('incorreto');
+                resultadoFinal.classList.add('correto');
+            } else {
+                resultadoFinal.classList.remove('correto');
+                resultadoFinal.classList.add('incorreto');
+            }
+        }
+    </script>
+</body>
+</html>
