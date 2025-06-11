@@ -1,119 +1,204 @@
+/* Geral */
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Poppins', sans-serif; /* Uma fonte mais moderna e limpa */
     margin: 0;
     padding: 0;
-    background-color: #e0f2f7; /* Um azul clarinho, cor de água */
-    color: #333;
+    background: linear-gradient(to bottom, #e3f2fd, #bbdefb); /* Gradiente suave de azul claro */
+    color: #212121; /* Texto mais escuro para melhor contraste */
     text-align: center;
+    line-height: 1.6;
 }
 
-header {
-    background-color: #81d4fa; /* Um azul mais forte */
-    padding: 20px 0;
-    color: white;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-}
-
-h1 {
-    font-size: 2.5em;
-    margin-bottom: 10px;
+/* Títulos e Parágrafos */
+h1, h2 {
+    font-weight: 700; /* Mais peso para os títulos */
+    color: #0d47a1; /* Azul escuro, profundo como a água */
 }
 
 p {
-    font-size: 1.1em;
+    font-size: 1.15em;
+    color: #ffffff;
 }
 
+/* Cabeçalho */
+header {
+    background-color: #42a5f5; /* Um azul vibrante */
+    padding: 30px 0;
+    color: white;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25); /* Sombra mais pronunciada */
+    position: relative;
+    overflow: hidden; /* Para o efeito de onda */
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    bottom: -150px; /* Posiciona a onda para fora inicialmente */
+    left: 0;
+    width: 100%;
+    height: 300px;
+    background: rgba(255, 255, 255, 0.1); /* Cor da onda mais clara */
+    border-radius: 50%;
+    transform: scaleX(1.5); /* Estica a onda */
+    animation: waveEffect 15s infinite linear; /* Animação de onda */
+}
+
+@keyframes waveEffect {
+    0% { transform: scaleX(1.5) rotate(0deg); }
+    100% { transform: scaleX(1.5) rotate(360deg); }
+}
+
+h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.1); /* Leve sombra no título */
+}
+
+/* Contêiner das Etapas */
 .ciclo-container {
-    display: flex; /* Para organizar as etapas lado a lado */
-    flex-wrap: wrap; /* Para que as etapas quebrem a linha em telas pequenas */
-    justify-content: center; /* Centraliza as etapas */
-    gap: 30px; /* Espaço entre as etapas */
-    padding: 40px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 35px; /* Espaço aumentado */
+    padding: 50px 20px;
+    max-width: 1200px; /* Limita a largura para melhor leitura */
+    margin: 0 auto; /* Centraliza o contêiner */
 }
 
+/* Cartão de Etapa */
 .etapa {
     background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    padding: 20px;
-    width: 250px; /* Largura de cada cartão de etapa */
-    transition: transform 0.3s ease-in-out; /* Animação suave ao passar o mouse */
-    position: relative; /* Necessário para posicionar a caixa de info */
-    overflow: hidden; /* Garante que a info escondida não seja vista */
+    border-radius: 15px; /* Bordas mais arredondadas */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15); /* Sombra mais suave e espalhada */
+    padding: 25px;
+    width: 280px; /* Largura um pouco maior */
+    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer; /* Indica que é clicável/interativo */
 }
 
 .etapa:hover {
-    transform: translateY(-10px); /* Levanta o cartão ao passar o mouse */
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    transform: translateY(-15px) scale(1.02); /* Levanta mais e cresce um pouco */
+    box-shadow: 0 12px 25px rgba(0,0,0,0.25); /* Sombra mais forte no hover */
 }
 
 .etapa img {
     max-width: 100%;
-    height: auto;
-    border-radius: 5px;
-    margin-bottom: 15px;
-    display: block; /* Remove espaço extra abaixo da imagem */
-    margin-left: auto; /* Centraliza a imagem */
-    margin-right: auto; /* Centraliza a imagem */
+    height: 180px; /* Altura fixa para imagens */
+    object-fit: cover; /* Garante que a imagem preencha o espaço sem distorcer */
+    border-radius: 10px;
+    margin-bottom: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid #90caf9; /* Borda sutil de azul claro */
 }
 
 .etapa h2 {
-    color: #0288d1; /* Azul da água */
-    font-size: 1.4em;
+    color: #1976d2; /* Azul médio para os títulos das etapas */
+    font-size: 1.6em;
     margin-top: 0;
     margin-bottom: 10px;
 }
 
+/* Informação Oculta */
 .etapa .info {
     position: absolute;
-    bottom: 0; /* Começa na parte de baixo do cartão */
+    bottom: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 150, 136, 0.9); /* Verde-água com transparência */
+    background: rgba(0, 150, 136, 0.95); /* Verde-água mais opaco */
     color: white;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 15px;
-    box-sizing: border-box; /* Inclui padding na largura/altura */
-    transform: translateY(100%); /* Esconde o texto para baixo */
-    transition: transform 0.4s ease-out; /* Animação de subida */
+    padding: 20px;
+    box-sizing: border-box;
+    transform: translateY(100%);
+    transition: transform 0.45s cubic-bezier(0.68, -0.55, 0.265, 1.55); /* Efeito elástico */
     text-align: center;
-    font-size: 1.05em;
-    border-radius: 10px;
+    font-size: 1.1em;
+    border-radius: 15px; /* Mantém o border-radius do pai */
 }
 
 .etapa:hover .info {
-    transform: translateY(0); /* Mostra o texto ao passar o mouse */
+    transform: translateY(0);
 }
 
+/* Rodapé */
 footer {
-    background-color: #81d4fa;
-    padding: 20px 0;
+    background-color: #42a5f5; /* Mesma cor do cabeçalho */
+    padding: 25px 0;
     color: white;
-    margin-top: 40px;
+    margin-top: 50px;
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
 }
 
+/* Botão do Quiz */
 .botao-quiz {
     display: inline-block;
-    background-color: #4CAF50; /* Verde vibrante */
+    background: linear-gradient(to right, #66bb6a, #43a047); /* Gradiente para o botão */
     color: white;
-    padding: 12px 25px;
-    border-radius: 5px;
-    text-decoration: none; /* Remove sublinhado do link */
-    font-size: 1.2em;
-    margin-top: 15px;
-    transition: background-color 0.3s ease;
+    padding: 15px 30px;
+    border-radius: 30px; /* Botão mais arredondado */
+    text-decoration: none;
+    font-size: 1.3em;
+    font-weight: 600;
+    margin-top: 25px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
 }
 
 .botao-quiz:hover {
-    background-color: #45a049; /* Verde mais escuro no hover */
+    background: linear-gradient(to right, #43a047, #388e3c);
+    transform: translateY(-3px); /* Leve levantada no hover */
+    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
 }
 
-/* Responsividade básica */
+/* Responsividade */
 @media (max-width: 768px) {
+    h1 {
+        font-size: 2.2em;
+    }
+
     .etapa {
-        width: 80%; /* Ocupa mais espaço em telas menores */
+        width: 90%; /* Ocupa mais espaço em telas menores */
+        max-width: 300px; /* Limita a largura máxima */
+    }
+
+    .ciclo-container {
+        padding: 30px 10px;
+    }
+
+    .botao-quiz {
+        font-size: 1.1em;
+        padding: 12px 25px;
     }
 }
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8em;
+    }
+
+    p {
+        font-size: 1em;
+    }
+
+    .etapa {
+        padding: 20px;
+    }
+
+    .etapa img {
+        height: 150px;
+    }
+
+    .etapa h2 {
+        font-size: 1.4em;
+    }
+}
+
+/* Adicionando fonte Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
