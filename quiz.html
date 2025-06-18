@@ -1,3 +1,8 @@
+Sure, I can help you with that! Here's the updated HTML code for your Water Cycle Quiz, including 10 more questions.
+
+---
+
+```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -7,6 +12,36 @@
     <link rel="stylesheet" href="style.css">
     <style>
         /* Estilos específicos para o quiz podem vir aqui ou no style.css */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e0f7fa;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #007bb6;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        header p {
+            font-size: 1.1em;
+            margin-top: 5px;
+        }
+
         .quiz-container {
             background-color: #ffffff;
             border-radius: 10px;
@@ -15,6 +50,7 @@
             margin: 50px auto;
             max-width: 600px;
             text-align: left;
+            flex-grow: 1;
         }
 
         .pergunta {
@@ -99,6 +135,30 @@
         .feedback.incorreto {
             color: #dc3545; /* Vermelho para feedback incorreto */
         }
+
+        footer {
+            background-color: #007bb6;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: auto;
+            box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
+        }
+
+        .botao-quiz {
+            display: inline-block;
+            background-color: #0056b3;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .botao-quiz:hover {
+            background-color: #004085;
+        }
     </style>
 </head>
 <body>
@@ -157,6 +217,198 @@
                 <div class="feedback" id="feedback-q3"></div>
             </div>
 
+            <div class="pergunta-bloco">
+                <p class="pergunta">4. Qual é o nome do processo em que o vapor d'água se transforma em pequenas gotículas para formar nuvens?</p>
+                <div class="opcoes">
+                    <label>
+                        <input type="radio" name="q4" value="a"> Evaporação.
+                    </label>
+                    <label>
+                        <input type="radio" name="q4" value="b"> Condensação.
+                    </label>
+                    <label>
+                        <input type="radio" name="q4" value="c"> Precipitação.
+                    </label>
+                </div>
+                <div class="feedback" id="feedback-q4"></div>
+            </div>
+
+            <div class="pergunta-bloco">
+                <p class="pergunta">5. A água que escorre na superfície da terra e vai para rios e lagos é chamada de...</p>
+                <div class="opcoes">
+                    <label>
+                        <input type="radio" name="q5" value="a"> Infiltração.
+                    </label>
+                    <label>
+                        <input type="radio" name="q5" value="b"> Escoamento superficial.
+                    </label>
+                    <label>
+                        <input type="radio" name="q5" value="c"> Transpiração.
+                    </label>
+                </div>
+                <div class="feedback" id="feedback-q5"></div>
+            </div>
+
+            <div class="pergunta-bloco">
+                <p class="pergunta">6. Qual das seguintes opções é uma forma de precipitação?</p>
+                <div class="opcoes">
+                    <label>
+                        <input type="radio" name="q6" value="a"> Nevoeiro.
+                    </label>
+                    <label>
+                        <input type="radio" name="q6" value="b"> Orvalho.
+                    </label>
+                    <label>
+                        <input type="radio" name="q6" value="c"> Neve.
+                    </label>
+                </div>
+                <div class="feedback" id="feedback-q6"></div>
+            </div>
+
+            <div class="pergunta-bloco">
+                <p class="pergunta">7. As plantas também participam do ciclo da água liberando vapor d'água na atmosfera. Esse processo é chamado de:</p>
+                <div class="opcoes">
+                    <label>
+                        <input type="radio" name="q7" value="a"> Fotossíntese.
+                    </label>
+                    <label>
+                        <input type="radio" name="q7" value="b"> Transpiração.
+                    </label>
+                    <label>
+                        <input type="radio" name="q7" value="c"> Absorção.
+                    </label>
+                </div>
+                <div class="feedback" id="feedback-q7"></div>
+            </div>
+
+            <div class="pergunta-bloco">
+                <p class="pergunta">8. O que acontece com a água da chuva que cai no solo e penetra nele?</p>
+                <div class="opcoes">
+                    <label>
+                        <input type="radio" name="q8" value="a"> Ela evapora imediatamente.
+                    </label>
+                    <label>
+                        <input type="radio" name="q8" value="b"> Ela se torna água subterrânea através da infiltração.
+                    </label>
+                    <label>
+                        <input type="radio" name="q8" value="c"> Ela vira nuvem novamente.
+                    </label>
+                </div>
+                <div class="feedback" id="feedback-q8"></div>
+            </div>
+
+            <div class="pergunta-bloco">
+                <p class="pergunta">9. Qual é a principal fonte de energia que impulsiona o ciclo da água?</p>
+                <div class="opcoes">
+                    <label>
+                        <input type="radio" name="q9" value="a"> A Lua.
+                    </label>
+                    <label>
+                        <input type="radio" name="q9" value="b"> O vento.
+                    </label>
+                    <label>
+                        <input type="radio" name="q9" value="c"> O Sol.
+                    </label>
+                </div>
+                <div class="feedback" id="feedback-q9"></div>
+            </div>
+
+            <div class="pergunta-bloco">
+                <p class="pergunta">10. Qual é a importância do ciclo da água para os seres vivos?</p>
+                <div class="opcoes">
+                    <label>
+                        <input type="radio" name="q10" value="a"> Ele cria o vento.
+                    </label>
+                    <label>
+                        <input type="radio" name="q10" value="b"> Ele fornece água doce para beber e para a vida na Terra.
+                    </label>
+                    <label>
+                        <input type="radio" name="q10" value="c"> Ele faz as plantas crescerem mais rápido.
+                    </label>
+                </div>
+                <div class="feedback" id="feedback-q10"></div>
+            </div>
+
+            <div class="pergunta-bloco">
+                <p class="pergunta">11. Em que estado físico a água está quando forma vapor?</p>
+                <div class="opcoes">
+                    <label>
+                        <input type="radio" name="q11" value="a"> Sólido.
+                    </label>
+                    <label>
+                        <input type="radio" name="q11" value="b"> Líquido.
+                    </label>
+                    <label>
+                        <input type="radio" name="q11" value="c"> Gasoso.
+                    </label>
+                </div>
+                <div class="feedback" id="feedback-q11"></div>
+            </div>
+
+            <div class="pergunta-bloco">
+                <p class="pergunta">12. De onde vem a água que preenche os rios e lagos depois de chover?</p>
+                <div class="opcoes">
+                    <label>
+                        <input type="radio" name="q12" value="a"> Do subterrâneo.
+                    </label>
+                    <label>
+                        <input type="radio" name="q12" value="b"> Do escoamento superficial e da água subterrânea.
+                    </label>
+                    <label>
+                        <input type="radio" name="q12" value="c"> Direto das nuvens.
+                    </label>
+                </div>
+                <div class="feedback" id="feedback-q12"></div>
+            </div>
+
+            <div class="pergunta-bloco">
+                <p class="pergunta">13. O que é um aquífero?</p>
+                <div class="opcoes">
+                    <label>
+                        <input type="radio" name="q13" value="a"> Um tipo de nuvem muito alta.
+                    </label>
+                    <label>
+                        <input type="radio" name="q13" value="b"> Uma camada de rocha ou solo que contém água subterrânea.
+                    </label>
+                    <label>
+                        <input type="radio" name="q13" value="c"> Um rio que seca no verão.
+                    </label>
+                </div>
+                <div class="feedback" id="feedback-q13"></div>
+            </div>
+
+            <div class="pergunta-bloco">
+                <p class="pergunta">14. Qual dos seguintes não é um estado da água no ciclo da água?</p>
+                <div class="opcoes">
+                    <label>
+                        <input type="radio" name="q14" value="a"> Plasma.
+                    </label>
+                    <label>
+                        <input type="radio" name="q14" value="b"> Sólido (gelo).
+                    </label>
+                    <label>
+                        <input type="radio" name="q14" value="c"> Líquido (água).
+                    </label>
+                </div>
+                <div class="feedback" id="feedback-q14"></div>
+            </div>
+
+            <div class="pergunta-bloco">
+                <p class="pergunta">15. O que é o ciclo da água?</p>
+                <div class="opcoes">
+                    <label>
+                        <input type="radio" name="q15" value="a"> Apenas a chuva que cai e enche os rios.
+                    </label>
+                    <label>
+                        <input type="radio" name="q15" value="b"> O movimento contínuo da água na Terra, mudando de estado e localização.
+                    </label>
+                    <label>
+                        <input type="radio" name="q15" value="c"> A forma como a água é usada nas casas.
+                    </label>
+                </div>
+                <div class="feedback" id="feedback-q15"></div>
+            </div>
+
             <button type="button" class="btn-check-quiz" onclick="checkAnswers()">Ver Resultado</button>
         </form>
 
@@ -172,7 +424,19 @@
             const correctAnswers = {
                 q1: 'b',
                 q2: 'c',
-                q3: 'b'
+                q3: 'b',
+                q4: 'b',
+                q5: 'b',
+                q6: 'c',
+                q7: 'b',
+                q8: 'b',
+                q9: 'c',
+                q10: 'b',
+                q11: 'c',
+                q12: 'b',
+                q13: 'b',
+                q14: 'a',
+                q15: 'b'
             };
             let score = 0;
             const totalQuestions = Object.keys(correctAnswers).length;
@@ -186,7 +450,7 @@
             });
 
             for (const questionId in correctAnswers) {
-                const selectedOption = form.elements[questionId].value;
+                const selectedOption = form.elements[questionId] ? form.elements[questionId].value : null;
                 const feedbackDiv = document.getElementById(`feedback-${questionId}`);
                 
                 if (selectedOption === correctAnswers[questionId]) {
@@ -194,7 +458,16 @@
                     feedbackDiv.textContent = 'Correto! ✔️';
                     feedbackDiv.classList.add('show', 'correto');
                 } else {
-                    feedbackDiv.textContent = `Incorreto. A resposta certa era: ${correctAnswers[questionId].toUpperCase()}. ❌`;
+                    // Get the correct answer's letter (a, b, or c) and display the full text
+                    let correctAnswerText = '';
+                    const questionOptions = Array.from(form.elements[questionId]);
+                    for (const option of questionOptions) {
+                        if (option.value === correctAnswers[questionId]) {
+                            correctAnswerText = option.labels[0].textContent.trim();
+                            break;
+                        }
+                    }
+                    feedbackDiv.textContent = `Incorreto. A resposta certa era: "${correctAnswerText}". ❌`;
                     feedbackDiv.classList.add('show', 'incorreto');
                 }
             }
@@ -211,3 +484,4 @@
     </script>
 </body>
 </html>
+```
