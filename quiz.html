@@ -7,153 +7,153 @@
     <link rel="stylesheet" href="style.css">
     <style>
        /* Estilos específicos para o quiz podem vir aqui ou no style.css */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #e3f2fd; /* Azul muito claro, quase branco para o fundo do quiz */
-    color: #333;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
-header {
-    background-color: #2196f3; /* Azul primário para o cabeçalho do quiz */
-    color: white;
-    padding: 20px 0;
-    text-align: center;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-header h1 {
-    margin: 0;
-    font-size: 2.5em;
-}
-
-header p {
-    font-size: 1.1em;
-    margin-top: 5px;
-}
-
-.quiz-container {
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    padding: 30px;
-    margin: 50px auto;
-    max-width: 600px;
-    text-align: left;
-    flex-grow: 1;
-}
-
-.pergunta {
-    margin-bottom: 25px;
-    font-size: 1.3em;
-    font-weight: bold;
-    color: #1976d2; /* Azul um pouco mais escuro para as perguntas */
-}
-
-.opcoes label {
-    display: block;
-    background-color: #f5f5f5; /* Fundo mais claro para as opções */
-    padding: 12px 15px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    font-size: 1.1em;
-}
-
-.opcoes label:hover {
-    background-color: #e0e0e0;
-}
-
-.opcoes input[type="radio"] {
-    margin-right: 10px;
-}
-
-.btn-check-quiz {
-    display: block;
-    width: 100%;
-    padding: 15px;
-    background-color: #4caf50; /* Verde para checar */
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 1.3em;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-top: 30px;
-}
-
-.btn-check-quiz:hover {
-    background-color: #388e3c;
-}
-
-.resultado {
-    margin-top: 30px;
-    padding: 15px;
-    border-radius: 5px;
-    font-size: 1.4em;
-    font-weight: bold;
-    text-align: center;
-}
-
-.resultado.correto {
-    background-color: #e8f5e9; /* Verde muito claro para resultado correto */
-    color: #2e7d32; /* Verde escuro */
-    border: 1px solid #a5d6a7;
-}
-
-.resultado.incorreto {
-    background-color: #ffebee; /* Vermelho muito claro para resultado incorreto */
-    color: #c62828; /* Vermelho escuro */
-    border: 1px solid #ef9a9a;
-}
-
-/* Esconder o feedback por padrão. Será revelado com JavaScript. */
-.feedback {
-    display: none;
-    font-size: 0.9em;
-    margin-top: 5px;
-    padding: 5px 10px;
-    border-radius: 3px;
-}
-.feedback.show {
-    display: block;
-}
-.feedback.correto {
-    color: #4caf50; /* Verde para feedback correto */
-}
-.feedback.incorreto {
-    color: #f44336; /* Vermelho para feedback incorreto */
-}
-
-footer {
-    background-color: #2196f3; /* Mesma cor do cabeçalho do quiz */
-    color: white;
-    text-align: center;
-    padding: 20px 0;
-    margin-top: auto;
-    box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
-}
-
-.botao-quiz {
-    display: inline-block;
-    background-color: #1976d2; /* Azul para o botão de voltar ao quiz */
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-}
-
-.botao-quiz:hover {
-    background-color: #1565c0;
-}
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e3f2fd; /* Azul muito claro, quase branco para o fundo do quiz */
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        
+        header {
+            background-color: #2196f3; /* Azul primário para o cabeçalho do quiz */
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        
+        header p {
+            font-size: 1.1em;
+            margin-top: 5px;
+        }
+        
+        .quiz-container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            padding: 30px;
+            margin: 50px auto;
+            max-width: 600px;
+            text-align: left;
+            flex-grow: 1;
+        }
+        
+        .pergunta {
+            margin-bottom: 25px;
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #1976d2; /* Azul um pouco mais escuro para as perguntas */
+        }
+        
+        .opcoes label {
+            display: block;
+            background-color: #f5f5f5; /* Fundo mais claro para as opções */
+            padding: 12px 15px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-size: 1.1em;
+        }
+        
+        .opcoes label:hover {
+            background-color: #e0e0e0;
+        }
+        
+        .opcoes input[type="radio"] {
+            margin-right: 10px;
+        }
+        
+        .btn-check-quiz {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: #4caf50; /* Verde para checar */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.3em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 30px;
+        }
+        
+        .btn-check-quiz:hover {
+            background-color: #388e3c;
+        }
+        
+        .resultado {
+            margin-top: 30px;
+            padding: 15px;
+            border-radius: 5px;
+            font-size: 1.4em;
+            font-weight: bold;
+            text-align: center;
+        }
+        
+        .resultado.correto {
+            background-color: #e8f5e9; /* Verde muito claro para resultado correto */
+            color: #2e7d32; /* Verde escuro */
+            border: 1px solid #a5d6a7;
+        }
+        
+        .resultado.incorreto {
+            background-color: #ffebee; /* Vermelho muito claro para resultado incorreto */
+            color: #c62828; /* Vermelho escuro */
+            border: 1px solid #ef9a9a;
+        }
+        
+        /* Esconder o feedback por padrão. Será revelado com JavaScript. */
+        .feedback {
+            display: none;
+            font-size: 0.9em;
+            margin-top: 5px;
+            padding: 5px 10px;
+            border-radius: 3px;
+        }
+        .feedback.show {
+            display: block;
+        }
+        .feedback.correto {
+            color: #4caf50; /* Verde para feedback correto */
+        }
+        .feedback.incorreto {
+            color: #f44336; /* Vermelho para feedback incorreto */
+        }
+        
+        footer {
+            background-color: #2196f3; /* Mesma cor do cabeçalho do quiz */
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: auto;
+            box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .botao-quiz {
+            display: inline-block;
+            background-color: #1976d2; /* Azul para o botão de voltar ao quiz */
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        
+        .botao-quiz:hover {
+            background-color: #1565c0;
+        }
     </style>
 </head>
 <body>
